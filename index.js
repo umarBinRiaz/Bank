@@ -53,3 +53,179 @@ function signup() {
 
 }
 
+
+function login() {
+
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
+
+    var index = User.indexOf(email);
+
+    if (index !== -1 && Password[index] === pass) {
+
+        currentUserIndex = index;
+
+        alert("Login Successful");
+
+        document.getElementById("auth").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+    } else {
+
+        alert("Invalid Email Or Password");
+
+    }
+
+}
+
+function logout() {
+
+    currentUserIndex = -1;
+
+    document.getElementById("auth").style.display = "block";
+    document.getElementById("dashboard").style.display = "none";
+
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("receiver").value = "";
+
+    alert("Logged Out Successfully");
+
+}
+
+function exitApp() {
+
+    app = false;
+
+    alert("Thank You For Using UBR Bank");
+
+    document.getElementById("auth").style.display = "none";
+
+}
+// ===================== DEPOSIT =====================
+
+function deposit() {
+
+    var amount = Number(document.getElementById("amount").value);
+
+    if (amount <= 0) {
+
+        alert("Enter Valid Amount");
+        return;
+
+    }
+
+    Balance[currentUserIndex] += amount;
+
+    Statement[currentUserIndex].push("Deposited : " + amount);
+
+    alert("Deposit Successful");
+
+    console.log("Current Balance : " + Balance[currentUserIndex]);
+
+    document.getElementById("amount").value = "";
+
+}
+
+function withdraw() {
+
+    var amount = Number(document.getElementById("amount").value);
+
+    if (amount <= 0) {
+
+        alert("Enter Valid Amount");
+        return;
+
+    }
+
+    if (amount > Balance[currentUserIndex]) {
+
+        alert("Insufficient Balance");
+        return;
+
+    }
+
+    Balance[currentUserIndex] -= amount;
+
+    Statement[currentUserIndex].push("Withdraw : " + amount);
+
+    alert("Withdraw Successful");
+
+    console.log("Remaining Balance : " + Balance[currentUserIndex]);
+
+    document.getElementById("amount").value = "";
+
+}
+
+function checkBalance() {
+
+    alert("Current Balance : " + Balance[currentUserIndex]);
+
+    console.log("Current Balance : " + Balance[currentUserIndex]);
+
+}
+
+function transferMoney() {
+
+    var receiver = document.getElementById("receiver").value;
+    var amount = Number(document.getElementById("amount").value);
+
+    var receiverIndex = User.indexOf(receiver);
+
+    if (receiver === "") {
+
+        alert("Enter Receiver Email");
+        return;
+
+    }
+
+    if (receiverIndex === -1) {
+
+        alert("Receiver Not Found");
+        return;
+
+    }
+
+    if (receiverIndex === currentUserIndex) {
+
+        alert("You Cannot Transfer Money To Yourself");
+        return;
+
+    }
+
+    if (amount <= 0) {
+
+        alert("Enter Valid Amount");
+        return;
+
+    }
+
+    if (amount > Balance[currentUserIndex]) {
+
+        alert("Insufficient Balance");
+        return;
+
+    }
+
+    Balance[currentUserIndex] -= amount;
+    Balance[receiverIndex] += amount;
+
+    Statement[currentUserIndex].push(
+        "Transferred " + amount + " To " + User[receiverIndex]
+    );
+
+    Statement[receiverIndex].push(
+        "Received " + amount + " From " + User[currentUserIndex]
+    );
+
+    alert("Transfer Successful");
+
+    console.log("Transferred To : " + User[receiverIndex]);
+    console.log("Current Balance : " + Balance[currentUserIndex]);
+
+    document.getElementById("receiver").value = "";
+    document.getElementById("amount").value = "";
+
+}
+
