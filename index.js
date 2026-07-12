@@ -229,3 +229,25 @@ function transferMoney() {
 
 }
 
+function bankStatement() {
+
+    console.clear();
+
+    console.log("===== UBR BANK STATEMENT =====");
+
+    if (Statement[currentUserIndex].length === 0) {
+
+        console.log("No Transaction History");
+        return;
+
+    }
+
+    for (var i = 0; i < Statement[currentUserIndex].length; i++) {
+
+        console.log(
+            (i + 1) + ". " + Statement[currentUserIndex][i]
+        );
+
+    }
+
+}
