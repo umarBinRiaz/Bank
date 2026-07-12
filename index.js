@@ -7,6 +7,7 @@ var Statement = [];
 
 var currentUserIndex = -1;
 var app = true;
+//  =========================================================================================== 
 
 function signup() {
 
@@ -53,6 +54,7 @@ function signup() {
 
 }
 
+//  =========================================================================================== 
 
 function login() {
 
@@ -77,6 +79,7 @@ function login() {
     }
 
 }
+//  =========================================================================================== 
 
 function logout() {
 
@@ -93,6 +96,7 @@ function logout() {
     alert("Logged Out Successfully");
 
 }
+//  =========================================================================================== 
 
 function exitApp() {
 
@@ -103,7 +107,7 @@ function exitApp() {
     document.getElementById("auth").style.display = "none";
 
 }
-// ===================== DEPOSIT =====================
+//  =========================================================================================== 
 
 function deposit() {
 
@@ -127,6 +131,7 @@ function deposit() {
     document.getElementById("amount").value = "";
 
 }
+//  =========================================================================================== 
 
 function withdraw() {
 
@@ -157,6 +162,7 @@ function withdraw() {
     document.getElementById("amount").value = "";
 
 }
+//  =========================================================================================== 
 
 function checkBalance() {
 
@@ -165,6 +171,8 @@ function checkBalance() {
     console.log("Current Balance : " + Balance[currentUserIndex]);
 
 }
+//  =========================================================================================== 
+
 
 function transferMoney() {
 
@@ -228,6 +236,8 @@ function transferMoney() {
     document.getElementById("amount").value = "";
 
 }
+
+//  =========================================================================================== 
 
 function bankStatement() {
 
