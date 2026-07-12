@@ -1,27 +1,133 @@
-.Button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-.Button:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    padding:20px;
 }
 
-.Button:active {
-    transform: scale(0.97);
+.container{
+    max-width:500px;
 }
 
-.Button:focus {
-    outline: none;
+#auth,
+#dashboard{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    animation:fadeIn .6s ease;
+}
+
+h2,
+h3{
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+input{
+    height:52px !important;
+    border-radius:12px !important;
+    border:none !important;
+    background:rgba(255,255,255,.9) !important;
+    padding-left:15px !important;
+    transition:.3s;
+}
+
+input:focus{
+    transform:scale(1.02);
+    box-shadow:0 0 12px #38bdf8 !important;
+}
+
+button{
+    height:48px;
+    border-radius:12px !important;
+    font-weight:600 !important;
+    transition:.3s !important;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+.btn-success{
+    background:#16a34a !important;
+    border:none;
+}
+
+.btn-primary{
+    background:#2563eb !important;
+    border:none;
+}
+
+.btn-danger{
+    background:#dc2626 !important;
+    border:none;
+}
+
+.btn-warning{
+    background:#f59e0b !important;
+    color:#fff !important;
+    border:none;
+}
+
+.btn-info{
+    background:#06b6d4 !important;
+    color:#fff !important;
+    border:none;
+}
+
+.btn-secondary{
+    background:#64748b !important;
+    border:none;
+}
+
+.btn-dark{
+    background:#111827 !important;
+    border:none;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:576px){
+
+    #auth,
+    #dashboard{
+        padding:25px;
+    }
+
+    h2,
+    h3{
+        font-size:26px;
+    }
+
 }
