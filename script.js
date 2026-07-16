@@ -241,22 +241,29 @@ function transferMoney() {
 
 function bankStatement() {
 
-    console.clear();
+    var box = document.getElementById("statementBox");
+    var list = document.getElementById("statementList");
 
-    console.log("===== UBR BANK STATEMENT =====");
+    list.innerHTML = "";
+
+    box.style.display = "block";
 
     if (Statement[currentUserIndex].length === 0) {
 
-        console.log("No Transaction History");
-        return;
+        list.innerHTML =
+            "<li class='list-group-item text-center'>No Transaction History</li>";
 
+        return;
     }
 
     for (var i = 0; i < Statement[currentUserIndex].length; i++) {
 
-        console.log(
-            (i + 1) + ". " + Statement[currentUserIndex][i]
-        );
+        list.innerHTML +=
+            "<li class='list-group-item'>" +
+            (i + 1) +
+            ". " +
+            Statement[currentUserIndex][i] +
+            "</li>";
 
     }
 
